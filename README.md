@@ -1,10 +1,14 @@
 # Documentation Github Pages Action
 
-A composite Github Action to generate code, OpenAPI and AsyncAPI documentation and to deploy it on Github Pages.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=plastic)](https://opensource.org/licenses/MIT)
+![Version](https://img.shields.io/github/v/release/smartoperatingblock/documentation-ghp-action?style=plastic)
+
+A composite **Github Action** to generate *code*, *OpenAPI* and *AsyncAPI* documentation and to deploy it on Github Pages.
 
 ## Setup
 Choose the types of documentation you want to generate by putting true on this input parameters:
-- `should-generate-code-documentaion`
+- `should-generate-code-documentation`
 - `should-generate-openapi-documentaion`
 - `should-generate-asyncapi-documentaion`
 
@@ -18,6 +22,23 @@ For every selected type specify the command, input file and destination folder o
 
 ## Example
 
-An example of action usage with all types of documentations
+An example of how to use the action with all types of documentations and inputs:
 ```yaml
+jobs:
+  documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: SmartOperatingBlock/documentation-ghp-action@1.0.0
+        with:
+          should-generate-code-documentation: true
+          code-documentation-generation-command: ./gradlew dokkaHtml
+          code-documentation-dst-folder: 'build/code-doc/'
+          should-generate-openapi-documentation: true
+          openapi-documentation-input-file: 'docs/openapi/openapi.yml'
+          openapi-documentation-dst-folder: 'build/openapi-doc/'
+          should-generate-asyncapi-documentation: true
+          asyncapi-documentation-input-file: 'docs/asyncapi/asyncapi.yml'
+          asyncapi-documentation-dst-folder: 'build/asyncapi-doc/'
 ```
