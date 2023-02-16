@@ -1,0 +1,52 @@
+name: Documentation GH-Pages Action
+description: Generate the code, asyncapi and openapi documentation and push it on Github Pages.
+
+inputs:
+
+  should-generate-code-documentation:
+    description: 'True if you want to generate the code documentation, false otherwise.'
+    type: boolean
+    default: 'false'
+    required: false
+    
+  code-documentation-generation-command:
+    description: 'The command to generate code documentation.'
+    default: './gradlew dokkaHtml'
+    required: false
+
+  code-documentation-dst-folder:
+    description: 'The destination folder of the generated code documentation.'
+    default: 'build/code-doc/'
+    required: false
+
+  should-generate-openapi-documentation:
+    description: 'True if you want to generate the open api documentation, false otherwise.'
+    default: 'false'
+    required: false
+
+  openapi-documentation-input-file:
+    description: 'The input file with rest api specification in open api standard.'
+    default: 'docs/openapi/openapi.yml'
+    required: false
+    
+  openapi-documentation-dst-folder:
+    description: 'The destination folder of the generated open api documentation.'
+    default: 'build/openapi-doc/'
+    required: false
+
+  should-generate-asyncapi-documentation:
+    description: 'True if you want to generate the async api documentation, false otherwise.'
+    default: 'false'
+    required: false
+
+  asyncapi-documentation-input-file:
+    description: 'The input file with async api specification in latest async api standard.'
+    default: 'docs/asyncapi/asyncapi.yml'
+    required: false
+
+  async-documentation-dst-folder:
+    description: 'The destination folder of the generated async api documentation.'
+    default: 'build/asyncapi-doc/'
+    required: false
+
+    
