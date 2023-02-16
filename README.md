@@ -38,7 +38,7 @@ jobs:
         with:
           should-generate-code-documentation: true
           code-documentation-generation-command: ./gradlew dokkaHtml
-          code-documentation-dst-folder: 'build/dokka/html'
+          code-documentation-dst-folder: './build/dokka/html'
           code-documentation-site-folder: 'documentation/code-doc'
           should-generate-openapi-documentation: true
           openapi-documentation-input-file: 'docs/openapi/openapi.yml'

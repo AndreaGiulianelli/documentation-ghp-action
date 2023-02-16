@@ -15,7 +15,7 @@ inputs:
 
   code-documentation-dst-folder:
     description: 'The destination folder of the generated code documentation.'
-    default: 'build/dokka/html'
+    default: './build/dokka/html'
     required: false
 
   code-documentation-site-folder:
@@ -82,7 +82,7 @@ runs:
     with:
       github_token: ${{ inputs.github-token }}
       keep_files: true
-      publish_dir: ${{ inputs.code-documentation-generated-folder }}
+      publish_dir: ${{ inputs.code-documentation-dst-folder }}
       destination_dir: ${{ inputs.code-documentation-site-folder }}
       user_name: 'github-actions[bot]'
       user_email: 'github-actions[bot]@users.noreply.github.com'
