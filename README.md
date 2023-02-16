@@ -14,11 +14,12 @@ Choose the types of documentation you want to generate by putting true on this i
 
 For every selected type specify the command, input file and destination folder or use the default values:
 - `code-documentation-generation-command`    default *'./gradlew dokkaHtml'*
-- `code-documentation-dst-folder`    default *'build/code-doc/'*
+- `code-documentation-dst-folder`    default *'build/dokka/html'*
+- `code-documentation-site-folder` default *'documentation/code-doc'*
 - `openapi-documentation-input-file`    default *'docs/openapi/openapi.yml'*
-- `openapi-documentation-dst-folder`    default *'build/openapi-doc/'*
+- `openapi-documentation-dst-folder`    default *'documentation/openapi-doc/'*
 - `asyncapi-documentation-input-file`    default *'docs/asyncapi/asyncapi.yml'*
-- `asyncapi-documentation-dst-folder`    default *'build/asyncapi-doc'/*
+- `asyncapi-documentation-dst-folder`    default *''documentation/asyncapi-doc/'*
 
 Finally, provide the GITHUB_TOKEN to allow the action to push on *gh-pages* branch:
 - `github-token`
@@ -37,12 +38,13 @@ jobs:
         with:
           should-generate-code-documentation: true
           code-documentation-generation-command: ./gradlew dokkaHtml
-          code-documentation-dst-folder: 'build/code-doc/'
+          code-documentation-dst-folder: 'build/dokka/html'
+          code-documentation-site-folder: 'documentation/code-doc'
           should-generate-openapi-documentation: true
           openapi-documentation-input-file: 'docs/openapi/openapi.yml'
-          openapi-documentation-dst-folder: 'build/openapi-doc/'
+          openapi-documentation-dst-folder: 'documentation/openapi-doc'
           should-generate-asyncapi-documentation: true
           asyncapi-documentation-input-file: 'docs/asyncapi/asyncapi.yml'
-          asyncapi-documentation-dst-folder: 'build/asyncapi-doc/'
+          asyncapi-documentation-dst-folder: 'documentation/asyncapi-doc'
           github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
