@@ -1,6 +1,6 @@
 # Documentation Github Pages Action
 
-
+![Release](https://github.com/smartoperatingblock/documentation-ghp-action/actions/workflows/release.yml/badge.svg?style=plastic)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=plastic)](https://opensource.org/licenses/MIT)
 ![Version](https://img.shields.io/github/v/release/smartoperatingblock/documentation-ghp-action?style=plastic)
 
@@ -21,10 +21,10 @@ For every selected type specify the command, input file and destination folder o
 - `asyncapi-documentation-input-file`    default *'docs/asyncapi/asyncapi.yml'*
 - `asyncapi-documentation-dst-folder`    default *''documentation/asyncapi-doc/'*
 
-Finally, provide the GITHUB_TOKEN to allow the action to push on *gh-pages* branch:
+Finally, provide the *GITHUB_TOKEN* to allow the action to push on *gh-pages* branch:
 - `github-token`
   
-## Example
+## Usage
 
 An example of how to use the action with all types of documentations and inputs:
 ```yaml
@@ -48,3 +48,6 @@ jobs:
           asyncapi-documentation-dst-folder: 'documentation/asyncapi-doc'
           github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
+## License
+
+The action is released under the [MIT](https://opensource.org/licenses/MIT) License.
