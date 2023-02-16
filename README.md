@@ -20,6 +20,9 @@ For every selected type specify the command, input file and destination folder o
 - `asyncapi-documentation-input-file`    default *'docs/asyncapi/asyncapi.yml'*
 - `asyncapi-documentation-dst-folder`    default *'build/asyncapi-doc'/*
 
+Finally, provide the GITHUB_TOKEN to allow the action to push on *gh-pages* branch:
+- `github-token`
+  
 ## Example
 
 An example of how to use the action with all types of documentations and inputs:
@@ -41,4 +44,5 @@ jobs:
           should-generate-asyncapi-documentation: true
           asyncapi-documentation-input-file: 'docs/asyncapi/asyncapi.yml'
           asyncapi-documentation-dst-folder: 'build/asyncapi-doc/'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
