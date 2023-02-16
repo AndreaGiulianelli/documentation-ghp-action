@@ -44,9 +44,58 @@ inputs:
     default: 'docs/asyncapi/asyncapi.yml'
     required: false
 
-  async-documentation-dst-folder:
+  asyncapi-documentation-dst-folder:
     description: 'The destination folder of the generated async api documentation.'
     default: 'build/asyncapi-doc/'
     required: false
 
-    
+runs:
+  using: composite
+  steps:
+  - name: Generate Code Documentation
+    if: inputs.should-generate-code-documentation == 'true'
+    run: ${{ inputs.code-documentation-generation-command }} -outputDir ${{ inputs.code-documentation-dst-folder }}
+  - name: Generate Swagger OpenAPI Documentation 
+    if: inputs.should-generate-openapi-documentation == 'true'
+    uses: Legion2/swagger-ui-action@v1
+      with:
+        output: ${{ inputs.openapi-documentation-dst-folder }}
+        spec-file: ${{ inputs.openapi-documentation-input-file }}
+  - name: Generate AsyncAPI Documentation
+    if: inputs.should-generate-asyncapi-documentation == 'true'
+    run: |
+      npm install -g @asyncapi/generator@1.9.17
+      ag ${{ inputs.asyncapi-documentation-input-file }} @asyncapi/html-template -o ${{ inputs.asyncapi-documentation-dst-folder }}
+  - name: Deploy code documentation on Github Pages
+    if: inputs.should-generate-code-documentation == 'true'
+    uses: peaceiris/actions-gh-pages@v3
+    with:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+      keep_files: true
+      publish_dir: ${{ inputs.code-documentation-dst-folder }}
+      destination_dir: 'code-documentation'
+      user_name: 'github-actions[bot]'
+      user_email: 'github-actions[bot]@users.noreply.github.com'
+      commit_message: 'docs: update code documentation'
+  - name: Deploy OpenAPI documentation on Github Pages
+    if: inputs.should-generate-openapi-documentation == 'true'
+    uses: peaceiris/actions-gh-pages@v3
+    with:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+      keep_files: true
+      publish_dir: ${{ inputs.openapi-documentation-dst-folder }}
+      destination_dir: 'openapi-documentation'
+      user_name: 'github-actions[bot]'
+      user_email: 'github-actions[bot]@users.noreply.github.com'
+      commit_message: 'docs: update openapi documentation'
+  - name: Deploy AsyncAPI documentation on Github Pages
+    if: inputs.should-generate-asyncapi-documentation == 'true'
+    uses: peaceiris/actions-gh-pages@v3
+    with:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+      keep_files: true
+      publish_dir: ${{ inputs.asyncapi-documentation-dst-folder }}
+      destination_dir: 'asyncapi-documentation'
+      user_name: 'github-actions[bot]'
+      user_email: 'github-actions[bot]@users.noreply.github.com'
+      commit_message: 'docs: update asyncapi documentation'
