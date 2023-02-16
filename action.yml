@@ -53,16 +53,18 @@ runs:
   using: composite
   steps:
   - name: Generate Code Documentation
+    shell: bash
     if: inputs.should-generate-code-documentation == 'true'
     run: ${{ inputs.code-documentation-generation-command }} -outputDir ${{ inputs.code-documentation-dst-folder }}
   - name: Generate Swagger OpenAPI Documentation 
     if: inputs.should-generate-openapi-documentation == 'true'
     uses: Legion2/swagger-ui-action@v1
-      with:
-        output: ${{ inputs.openapi-documentation-dst-folder }}
-        spec-file: ${{ inputs.openapi-documentation-input-file }}
+    with:
+      output: ${{ inputs.openapi-documentation-dst-folder }}
+      spec-file: ${{ inputs.openapi-documentation-input-file }}
   - name: Generate AsyncAPI Documentation
     if: inputs.should-generate-asyncapi-documentation == 'true'
+    shell: bash
     run: |
       npm install -g @asyncapi/generator@1.9.17
       ag ${{ inputs.asyncapi-documentation-input-file }} @asyncapi/html-template -o ${{ inputs.asyncapi-documentation-dst-folder }}
