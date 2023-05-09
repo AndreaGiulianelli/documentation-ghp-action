@@ -1,3 +1,30 @@
+## [1.1.0](https://github.com/SmartOperatingBlock/documentation-ghp-action/compare/1.0.0...1.1.0) (2023-05-09)
+
+
+### Features
+
+* change order in documentation generation ([7eec7a8](https://github.com/SmartOperatingBlock/documentation-ghp-action/commit/7eec7a8060a3ecc13693a4aa9fb21936517e593d))
+
+
+### General maintenance
+
+* update README with license and release badge ([7a2323c](https://github.com/SmartOperatingBlock/documentation-ghp-action/commit/7a2323cc038bbca353a006dad9648c534b1278f4))
+
+
+### Dependency updates
+
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.17 ([bdbab52](https://github.com/SmartOperatingBlock/documentation-ghp-action/commit/bdbab52b7a3c88e903025a7715f61d8b3c8fb644))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.19 ([6343c5f](https://github.com/SmartOperatingBlock/documentation-ghp-action/commit/6343c5f4c4332576bdb6443e7601148eee042ad6))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.20 ([219b9e8](https://github.com/SmartOperatingBlock/documentation-ghp-action/commit/219b9e84a5f7b25698eecb83e2b9837d4daaa875))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.21 ([d3671f7](https://github.com/SmartOperatingBlock/documentation-ghp-action/commit/d3671f7fda0ea5497e007a720802d05805991738))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.22 ([bebe950](https://github.com/SmartOperatingBlock/documentation-ghp-action/commit/bebe95089c9bf1bfdad25a40dd99539dc29fe530))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.23 ([ee51725](https://github.com/SmartOperatingBlock/documentation-ghp-action/commit/ee51725962719ddfa16f6f2aea6e797f1b78758d))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.24 ([16bc9e3](https://github.com/SmartOperatingBlock/documentation-ghp-action/commit/16bc9e3eb9b7a1f786865dc5c3a024de34c7a98e))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.25 ([8fef9b3](https://github.com/SmartOperatingBlock/documentation-ghp-action/commit/8fef9b334d0b0aab72fad6da13f8783c2501f486))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.26 ([267716b](https://github.com/SmartOperatingBlock/documentation-ghp-action/commit/267716b6f625b7b834b307c2b2887025e33b84c0))
+* **deps:** update node.js to 18.15 ([4cd4cf2](https://github.com/SmartOperatingBlock/documentation-ghp-action/commit/4cd4cf25e61f607267384bdca8080116609b661f))
+* **deps:** update node.js to 18.16 ([91596c2](https://github.com/SmartOperatingBlock/documentation-ghp-action/commit/91596c22adb3a5f5f09df66611a7ed855470c135))
+
 ## 1.0.0 (2023-02-16)
 
 
