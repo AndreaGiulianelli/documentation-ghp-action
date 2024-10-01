@@ -11,7 +11,30 @@ on:
   workflow_dispatch:
 
 jobs:
+  test:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the action
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - uses: ./
+        with:
+          should-generate-code-documentation: false
+          should-generate-asyncapi-documentation: true
+          asyncapi-documentation-input-file: 'test/asyncapi.yml'
+          asyncapi-documentation-dst-folder: 'documentation/asyncapi-doc'
+          should-generate-openapi-documentation: true
+          openapi-documentation-input-file: 'test/rest-api-docs.yml'
+          openapi-documentation-dst-folder: 'documentation/openapi-doc'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
   release:
+    needs:
+      - test
     permissions:
       contents: write
     concurrency:
@@ -48,6 +71,7 @@ jobs:
   success:
       runs-on: ubuntu-22.04
       needs:
+        - test
         - release
       if: >-
         always() && (
