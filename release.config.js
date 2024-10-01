@@ -8,10 +8,7 @@ config.branches = releaseBranches
 
 config.plugins.push(
     "@semantic-release/github",
-    ["@semantic-release/git", {
-        "assets": ["CHANGELOG.md", "package.json"],
-        "message": "chore(release)!: [skip ci] ${nextRelease.version} released"
-    }]
+    "@semantic-release/git",
 )
 
 // JS Semantic Release configuration must export the JS configuration object
