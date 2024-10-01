@@ -12,6 +12,8 @@ on:
 
 jobs:
   release:
+    permissions:
+      contents: write
     concurrency:
         # Allow only one release at a time.
         group: release-${{ github.event.number || github.ref }}
