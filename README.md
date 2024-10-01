@@ -1,8 +1,8 @@
 # Documentation Github Pages Action
 
-![Release](https://github.com/smartoperatingblock/documentation-ghp-action/actions/workflows/release.yml/badge.svg?style=plastic)
+![Release](https://github.com/AndreaGiulianelli/documentation-ghp-action/actions/workflows/test-and-release.yml/badge.svg?style=plastic)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=plastic)](https://opensource.org/licenses/MIT)
-![Version](https://img.shields.io/github/v/release/smartoperatingblock/documentation-ghp-action?style=plastic)
+![Version](https://img.shields.io/github/v/release/AndreaGiulianelli/documentation-ghp-action?style=plastic)
 
 A composite **Github Action** to generate *code*, *OpenAPI* and *AsyncAPI* documentation and to deploy it on Github Pages.
 
@@ -34,7 +34,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - uses: SmartOperatingBlock/documentation-ghp-action@1.0.0
+      - uses: AndreaGiulianelli/documentation-ghp-action@<version>
         with:
           should-generate-code-documentation: true
           code-documentation-generation-command: ./gradlew dokkaHtml
