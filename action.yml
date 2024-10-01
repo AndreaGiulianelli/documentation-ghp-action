@@ -76,6 +76,7 @@ runs:
     with:
       output: ${{ inputs.openapi-documentation-dst-folder }}
       spec-file: ${{ inputs.openapi-documentation-input-file }}
+      GITHUB_TOKEN: ${{ inputs.github-token }}
   - name: Deploy code documentation on Github Pages
     if: inputs.should-generate-code-documentation == 'true'
     uses: peaceiris/actions-gh-pages@v4
