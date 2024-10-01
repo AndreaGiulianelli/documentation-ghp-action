@@ -62,10 +62,12 @@ runs:
   steps:
   - name: Generate AsyncAPI Documentation
     if: inputs.should-generate-asyncapi-documentation == 'true'
-    shell: bash
-    run: |
-      npm install -g @asyncapi/generator@1.9.17
-      ag ${{ inputs.asyncapi-documentation-input-file }} @asyncapi/html-template -o ${{ inputs.asyncapi-documentation-dst-folder }}
+    uses: asyncapi/github-action-for-cli@v3.1.1
+    with:
+      template: '@asyncapi/html-template@0.9.0' 
+      filepath: ${{ inputs.asyncapi-documentation-input-file }}
+      parameters: -p baseHref=/test-experiment/ sidebarOrganization=byTags
+      output: asyncapi-generated-html
   - name: Generate Code Documentation
     shell: bash
     if: inputs.should-generate-code-documentation == 'true'
@@ -104,7 +106,7 @@ runs:
     with:
       github_token: ${{ inputs.github-token }}
       keep_files: true
-      publish_dir: ${{ inputs.asyncapi-documentation-dst-folder }}
+      publish_dir: asyncapi-generated-html
       destination_dir: ${{ inputs.asyncapi-documentation-dst-folder }}
       user_name: 'github-actions[bot]'
       user_email: 'github-actions[bot]@users.noreply.github.com'
